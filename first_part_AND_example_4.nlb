@@ -1,0 +1,6 @@
+BEGIN {
+   SET $C := 8 ;
+   SET $A := 3 ;
+   SET $B := $A $C B-AND ;
+   PRINT $B
+}

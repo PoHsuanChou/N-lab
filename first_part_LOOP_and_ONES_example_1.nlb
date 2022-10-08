@@ -1,0 +1,8 @@
+Example :
+BEGIN {
+   ONES 3 3 $A
+   PRINT $A
+   LOOP $I 5 {
+      PRINT $I
+   }
+}

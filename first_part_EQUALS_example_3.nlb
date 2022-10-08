@@ -1,0 +1,6 @@
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-EQUALS ;
+   PRINT $B
+}

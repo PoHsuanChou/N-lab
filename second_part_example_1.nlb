@@ -1,0 +1,4 @@
+{
+   ONES 3 3 $A
+   PRINT $A
+}

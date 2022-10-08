@@ -1,0 +1,4 @@
+BEGIN {
+   SET $D := this is Programming in C 2021 ;
+   PRINT $I
+}

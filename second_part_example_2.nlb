@@ -1,0 +1,4 @@
+BEGIN {
+   SUN d := 5 ;
+   PRINT $I
+}

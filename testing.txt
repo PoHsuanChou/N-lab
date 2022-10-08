@@ -1,0 +1,553 @@
+For the first part, I tested the SET_function, READ_function, BINARYOP_function, UNARYOP_function, VARNAME_function, and INTEGER_function.
+Most of the testing have 4 scenarios, which are one number and one array, one array and one number, two arrays, and two numbers.
+In the AND_function Example 2, Print string function is tested.
+The last testing is the LOOP_function and ONES_function, two function were tested together.
+
+For the second part, I tried to test the incorrect semantics and syntax and check whether the program will show the error. 
+
+
+
+FIRST PART:
+
+AND_function: For the function B-AND, I use 4 differnet scenarios to check my code.
+
+Example 1: Using one array and one number to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A 1 B-AND ;
+   PRINT $B
+}
+
+The answer: 
+
+ 1 1 0
+ 0 1 1
+ 0 0 0
+
+
+ 
+Example 2: Using one number and one array to generate the correct answer as well as test to PRINT_function for string 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := 0 $A B-AND ;
+   PRINT "ARRAY:"
+   PRINT $B
+}
+
+The answer: 
+ARRAY:
+ 0 0 0
+ 0 0 0
+ 0 0 0
+
+Example 3: Using two arrays to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-AND ;
+   PRINT $B
+}
+
+The answer: 
+
+ 1 1 0
+ 0 1 1
+ 0 0 0
+
+Example 4: Using two numbers to generate the correct answer 
+BEGIN {
+   SET $C := 8 ;
+   SET $A := 3 ;
+   SET $B := $A $C B-AND ;
+   PRINT $B
+}
+
+The answer: 
+1
+///////////////////////
+
+
+
+OR_function: For the function B-OR, I use 4 differnet scenarios to check my code.
+
+Example 1: Using one array and one number to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A 1 B-OR ;
+   PRINT $B
+}
+
+The answer:  
+ 1 1 1
+ 1 1 1
+ 1 1 1
+
+
+Example 2: Using one number and one array to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := 0 $A B-OR ;
+   PRINT $B
+}
+
+The answer:  
+ 1 1 0
+ 0 1 1
+ 0 0 0
+
+Example 3: Using two arrays to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-OR ;
+   PRINT $B
+}
+
+The answer: 
+ 1 1 0
+ 1 1 1
+ 1 0 0
+
+Example 4: Using two numbers to generate the correct answer 
+BEGIN {
+   SET $C := 8 ;
+   SET $A := 0 ;
+   SET $B := $A $C B-OR ;
+   PRINT $B
+}
+
+The answer: 
+1
+////////////////////////////
+B_GREATER_function: For the function B-GREATER, I use 4 differnet scenarios to check my code.
+
+Example 1: Using one array and one number to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A 1 B-GREATER ;
+   PRINT $B
+}
+
+The answer: 
+ 0 1 0
+ 0 0 1
+ 0 0 0
+
+Example 2: Using one number and one array to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := 2 $A B-GREATER ;
+   PRINT $B
+}
+
+The answer: 
+ 0 0 0
+ 0 0 1
+ 0 0 0
+
+Example 3: Using two arrays to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-GREATER ;
+   PRINT $B
+}
+
+The answer: 
+ 0 0 0
+ 0 0 0
+ 0 0 0
+
+Example 4: Using two numbers to generate the correct answer 
+BEGIN {
+   SET $C := 2 ;
+   SET $A := 4 ;
+   SET $B := $A $C B-GREATER ;
+   PRINT $B
+}
+
+The answer: 
+1
+////////////////////////////
+B_LESS_function: For the function B-LESS, I use 4 differnet scenarios to check my code.
+
+Example 1: Using one array and one number to generate the correct answer
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A 1 B-LESS ;
+   PRINT $B
+}
+
+The answer: 
+ 0 0 1
+ 1 0 0
+ 1 1 1
+
+Example 2: Using one number and one array to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := 2 $A B-LESS ;
+   PRINT $B
+}
+
+The answer: 
+ 1 0 1
+ 1 1 0
+ 1 1 1
+
+Example 3: Using two arrays to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-LESS ;
+   PRINT $B
+}
+
+The answer: 
+ 0 0 0
+ 1 1 0
+ 1 0 0
+
+Example 4: Using two numbers to generate the correct answer 
+BEGIN {
+   SET $C := 2 ;
+   SET $A := 4 ;
+   SET $B := $A $C B-LESS ;
+   PRINT $B
+}
+
+The answer: 
+0
+////////////////////////////
+
+B_ADD_function: For the function B-ADD, I use 4 differnet scenarios to check my code.
+
+Example 1: Using one array and one number to generate the correct answer
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A 1 B-ADD ;
+   PRINT $B
+}
+
+The answer: 
+ 2 3 1
+ 1 2 4
+ 1 1 1
+
+Example 2: Using one number and one array to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := 2 $A B-ADD ;
+   PRINT $B
+}
+
+The answer: 
+ 3 4 2
+ 2 3 5
+ 2 2 2
+
+Example 3: Using two arrays to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-ADD ;
+   PRINT $B
+}
+
+The answer: 
+ 2 4 0
+ 1 3 6
+ 3 0 0
+
+Example 4: Using two numbers to generate the correct answer 
+BEGIN {
+   SET $C := 2 ;
+   SET $A := 4 ;
+   SET $B := $A $C B-ADD ;
+   PRINT $B
+}
+
+The answer: 
+6
+
+
+
+B_TIMES_function: For the function B-TIMES, I use 4 differnet scenarios to check my code.
+
+Example 1: Using one array and one number to generate the correct answer
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A 2 B-TIMES ;
+   PRINT $B
+}
+
+The answer: 
+ 2 4 0
+ 0 2 6
+ 0 0 0
+
+Example 2: Using one number and one array to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := 3 $A B-TIMES ;
+   PRINT $B
+}
+
+The answer: 
+ 3 6 0
+ 0 3 9
+ 0 0 0
+
+Example 3: Using two arrays to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-TIMES ;
+   PRINT $B
+}
+
+The answer: 
+ 1 4 0
+ 0 2 9
+ 0 0 0
+
+Example 4: Using two numbers to generate the correct answer 
+BEGIN {
+   SET $C := 2 ;
+   SET $A := 4 ;
+   SET $B := $A $C B-TIMES ;
+   PRINT $B
+}
+
+The answer: 
+8
+////////////////////////////
+
+
+B_EQUALS_function: For the function B-TIMES, I use 4 differnet scenarios to check my code.
+
+Example 1: Using one array and one number to generate the correct answer
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A 1 B-EQUALS ;
+   PRINT $B
+}
+
+The answer: 
+ 1 0 0
+ 0 1 0
+ 0 0 0
+
+Example 2: Using one number and one array to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := 3 $A B-EQUALS ;
+   PRINT $B
+}
+
+The answer: 
+ 0 0 0
+ 0 0 1
+ 0 0 0
+
+Example 3: Using two arrays to generate the correct answer 
+BEGIN {
+   READ "3x3.arr" $A
+   READ "Second_3x3.arr" $C
+   SET $B := $A $C B-EQUALS ;
+   PRINT $B
+}
+
+The answer: 
+ 1 1 1
+ 0 0 1
+ 0 1 1
+
+Example 4: Using two numbers to generate the correct answer 
+BEGIN {
+   SET $C := 2 ;
+   SET $A := 4 ;
+   SET $B := $A $C B-EQUALS ;
+   PRINT $B
+}
+
+The answer: 
+0
+////////////////////////////
+
+U_NOT_function: Apply 3x3.arr to test whether the output is correct
+Example :
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A U-NOT ;
+   PRINT $B
+}
+
+The answer: 
+ 0 0 1
+ 1 0 0
+ 1 1 1
+
+////////////////////////////
+
+U_EIGHTCOUNT_function:Apply 3x3.arr to test whether the output is correct. I wrap the matrix to generate the output, so the answer could be differnet from what professor expected. 
+Example :
+BEGIN {
+   READ "3x3.arr" $A
+   SET $B := $A U-EIGHTCOUNT ;
+   PRINT $B
+}
+
+The answer: 
+ 6 5 7
+ 7 6 4
+ 7 7 7
+////////////////////////////
+
+ONES_function and LOOP_function: Test the ONES_function and LOOP_function
+Example :
+BEGIN {
+   ONES 3 3 $A
+   PRINT $A
+   LOOP $I 5 {
+      PRINT $I
+   }
+}
+
+The answer: 
+ 1 1 1
+ 1 1 1
+ 1 1 1
+
+ 1
+ 2
+ 3
+ 4
+ 5
+////////////////////////////
+
+
+SECOND PART: To test some semantics and syntax error.
+
+Example 1 : No BEGIN or { in the beginning 
+
+{
+   ONES 3 3 $A
+   PRINT $A
+}
+
+Result :
+Fatal Error NO BEGIN or { occurred in nlab.c, line 57
+//
+Example 2 : false Instrc
+
+BEGIN {
+   SUN d := 5 ;
+   PRINT $I
+}
+
+Result :
+Fatal Error Soemthing wrong with <INSTRC> occurred in nlab.c, line 97
+//
+Example 3 : No $ for the variable
+
+BEGIN {
+   SET d := 5 ;
+   PRINT $I
+}
+
+Result :
+Fatal Error Should have $ sign occurred in nlab.c, line 174
+//
+Example 4 : The variable is not capital letter
+
+BEGIN {
+   SET $d := 5 ;
+   PRINT $I
+}
+
+Result :
+Fatal Error Should between A to Z occurred in nlab.c, line 181
+//
+Example 5 : The variable should only be number or array
+
+BEGIN {
+   SET $D := this is Programming in C 2021 ;
+   PRINT $I
+}
+
+Result :
+Fatal Error Number should ne a non negative number occurred in nlab.c, line 324
+//
+Example 6 : The PRINT function should have "" for string
+
+BEGIN {
+   SET $I := 5 ;
+   PRINT moon
+}
+
+Result :
+Fatal Error Something wrong with PRINT function occurred in nlab.c, line 165
+//
+Example 7 : The ONES function should only have two numbers otherwise it should be error
+
+BEGIN {
+   ONES 3 3 3 $A
+   PRINT $A
+}
+
+Result :
+Fatal Error Should have $ sign occurred in nlab.c, line 174
+//
+Example 8 : There should be "" in read function
+
+BEGIN {
+
+   READ lblock.arr $A
+   PRINT $A
+}
+
+Result :
+Fatal Error Should have sign in the begining occurred in nlab.c, line 196
+//
+Example 9 : Loop function should have one variable and one number 
+
+BEGIN {
+   SET $F := 1 ;
+   LOOP $I S {
+      PRINT $I
+   }
+}
+Result :
+Fatal Error Number should ne a non negative number occurred in nlab.c, line 324
+//
+Example 10 : There should be } at the end of the code
+
+BEGIN {
+   SET $I := 5 ;
+   PRINT $I
+
+Result :
+Fatal Error Soemthing wrong with <INSTRC> occurred in nlab.c, line 97
+//
+Example 11 : Test Unaryop and Binaryop. if the function is wrong
+BEGIN {
+   SET $F := 2 ;
+   PRINT $F
+   SET $E := 5 ;
+   PRINT $E
+   SET $D := $F $E B-abcd ;
+   PRINT $D
+}
+
+Result :
+Fatal Error Something wrong with B-AND or B-OR or B-GREATER or B-LESS or B-ADD or B-TIMES or B-EQUALS occurred in nlab.c, line 372
+//
+
+
+
+
+
+
+
+

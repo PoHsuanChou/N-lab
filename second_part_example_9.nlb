@@ -1,0 +1,6 @@
+BEGIN {
+   SET $F := 1 ;
+   LOOP $I S {
+      PRINT $I
+   }
+}
